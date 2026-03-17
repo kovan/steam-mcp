@@ -137,8 +137,7 @@
 (defn -main [& _args]
   (when-not (System/getenv "STEAM_API_KEY")
     (binding [*out* *err*]
-      (println "WARNING: STEAM_API_KEY not set"))
-    (System/exit 1))
+      (println "WARNING: STEAM_API_KEY not set - only game_details and game_news will work")))
   (let [reader (BufferedReader. (InputStreamReader. System/in))]
     (loop []
       (when-let [line (.readLine reader)]
